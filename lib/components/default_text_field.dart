@@ -5,15 +5,22 @@ class DefaultTextField extends StatelessWidget {
       {super.key,
       required this.controller,
       required this.icon,
-      required this.label});
+      required this.label,
+      required this.valid});
 
   TextEditingController controller;
   String label;
   IconData icon;
-
+  String? Function(String?)? valid;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: valid,
+      // validator: (value) {
+      //   if (value!.length < 6) {
+      //     return "Field length must be at least 6 chars";
+      //   }
+      // },
       controller: controller,
       keyboardType: TextInputType.text,
       decoration: InputDecoration(

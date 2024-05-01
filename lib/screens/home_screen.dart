@@ -9,6 +9,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String name = "Hello World";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,18 +21,29 @@ class _HomeScreenState extends State<HomeScreen> {
         foregroundColor: Colors.white,
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // Navigator.pushNamed(context, "login");
-            // Navigator.pushAndRemoveUntil(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (_) => const LoginScreen(),
-            //   ),
-            //   (route) => false,
-            // );
-          },
-          child: const Text("Go to Login"),
+        child: Column(
+          children: [
+            Container(
+              height: 1,
+              width: 100,
+              margin: const EdgeInsets.all(20),
+              decoration: BoxDecoration(color: Colors.black),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                // Navigator.pushNamed(context, "login");
+                String reValue = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => LoginScreen(name: name),
+                  ),
+                );
+
+                print(reValue);
+              },
+              child: const Text("Go to Login"),
+            ),
+          ],
         ),
       ),
     );
