@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_6/screens/bottom_nav_screen.dart';
 import 'package:flutter_application_6/screens/home_screen.dart';
 import 'package:flutter_application_6/screens/login_screen.dart';
 import 'package:flutter_application_6/screens/screen1.dart';
+import 'package:flutter_application_6/screens/tab_bar_screen.dart';
+
+import 'screens/shared_pref_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: SharedPrefScreen(),
       theme: ThemeData.light().copyWith(
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.deepOrange,
